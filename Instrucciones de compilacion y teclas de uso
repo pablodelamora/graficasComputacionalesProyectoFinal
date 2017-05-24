@@ -1,0 +1,172 @@
+Para poder compilar el proyecto tan solo se necesita usar la siguiente linea en linux:
+
+g++ -std=c++11 main.cpp -lGL -lGLU -lglut -lm
+
+Esto te crea un ejecutable que tan solo corres y ya tienes el proyecto andando.
+
+Para usar el proyecto se tienen las siguientes teclas:
+
+
+        /*Movimiento en x*/
+           case '8':
+           direccion=0;
+                glutPostRedisplay();
+                break;
+           case '9':
+
+           direccion=1;
+                glutPostRedisplay();
+                break;
+       /*Movimiento en Z*/
+           case '0':
+
+	  case '3':
+		  if (fuerza > 0.005)
+			fuerza *= 0.5;
+		  falda.ponerFuerzaViento(fuerza);
+		  glutPostRedisplay();
+		  break;
+	  case '4':
+		  if (fuerza < 0.5)
+			  fuerza *= 2.0;
+		  falda.ponerFuerzaViento(fuerza);
+		  glutPostRedisplay();
+		  break;
+	  case '5':
+		  angulo += (PI * 0.125);
+		  falda.ponerAnguloViento(angulo);
+		  glutPostRedisplay();
+		  break;
+	  case '6':
+		  angulo -= (PI * 0.125);
+		  falda.ponerAnguloViento(angulo);
+		  glutPostRedisplay();
+		  break;
+	}
+
+
+//rotar torso
+void rotarTorso(unsigned char key){
+	switch (key) {
+	case '1':
+		body.revolucionar(5);
+		glutPostRedisplay();
+		break;
+	case '2':
+		body.revolucionar(-5);
+		glutPostRedisplay();
+		break;
+
+
+
+        //Tobillo Izquierdo
+        case 'x':
+            feetL.rotar(5);
+            glutPostRedisplay();
+        break;
+        case 'X':
+            feetL.rotar(-5);
+        glutPostRedisplay();
+        break;
+        case 'c':
+            feetL.revolucionar(5);
+            glutPostRedisplay();
+        break;
+        case 'C':
+            feetL.revolucionar(-5);
+            glutPostRedisplay();
+        break;
+        //Tobillo Derecha
+        case 'v':
+            feetR.rotar(5);
+            glutPostRedisplay();
+        break;
+        case 'V':
+            feetR.rotar(-5);
+        glutPostRedisplay();
+        break;
+        case 'b':
+            feetR.revolucionar(5);
+            glutPostRedisplay();
+        break;
+        case 'B':
+            feetR.revolucionar(-5);
+            glutPostRedisplay();
+        break;
+    }
+
+        //Pierna2 Izquierda
+        case 'l':
+            lowerLegL.rotar(5);
+            glutPostRedisplay();
+        break;
+        case 'L':
+            lowerLegL.rotar(-5);
+        glutPostRedisplay();
+        break;
+        //Pierna2 Derecha
+        case 'z':
+            lowerLegR.rotar(5);
+            glutPostRedisplay();
+        break;
+        case 'Z':
+            lowerLegR.rotar(-5);
+        glutPostRedisplay();
+        break;
+
+        //Pierna Derecha
+        case 'j':
+            upperLegR.rotar(5);
+			capsulaIzqCol.longitud = capsulaIzqCol.longitud.rotar(ejeZ, -PI*4.0 / 180.0);
+            glutPostRedisplay();
+        break;
+        case 'J':
+            upperLegR.rotar(-5);
+			capsulaIzqCol.longitud = capsulaIzqCol.longitud.rotar(ejeZ, PI*4.0 / 180.0);
+			glutPostRedisplay();
+        break;
+        case 'k':
+            upperLegR.revolucionar(5);
+			capsulaIzqCol.longitud = capsulaIzqCol.longitud.rotar(ejeX, -PI*3.5 / 180.0);
+            glutPostRedisplay();
+        break;
+        case 'K':
+            upperLegR.revolucionar(-5);
+			capsulaIzqCol.longitud = capsulaIzqCol.longitud.rotar(ejeX, PI*3.5 / 180.0);
+        glutPostRedisplay();
+        break;
+
+
+        case 'a':
+            handL.rotar(5);
+            glutPostRedisplay();
+        break;
+        case 'A':
+            handL.rotar(-5);
+        glutPostRedisplay();
+        break;
+        case 's':
+            handL.revolucionar(5);
+            glutPostRedisplay();
+        break;
+        case 'S':
+            handL.revolucionar(-5);
+        glutPostRedisplay();
+        break;
+        //Mano Derecha
+        case 'd':
+            handR.rotar(5);
+            glutPostRedisplay();
+        break;
+        case 'D':
+            handR.rotar(-5);
+        glutPostRedisplay();
+        break;
+        case 'f':
+            handR.revolucionar(5);
+            glutPostRedisplay();
+        break;
+        case 'F':
+            handR.revolucionar(-5);
+        glutPostRedisplay();
+        break;
